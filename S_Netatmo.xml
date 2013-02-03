@@ -1,0 +1,107 @@
+<scpd>
+   <serviceStateTable>
+       <stateVariable>
+           <name>Inside Temp Sensors</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+       <stateVariable>
+           <name>Outside Temp Sensors</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+       <stateVariable>
+           <name>inhibit Sensors</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+       <stateVariable>
+           <name>AutoLearning</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+       <stateVariable>
+           <name>heaters</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+   	   <stateVariable>
+           <name>powerMin</name>
+           <dataType>ui4</dataType>
+           <defaultValue>5</defaultValue>
+       </stateVariable>
+   	   <stateVariable>
+           <name>ConstC</name>
+           <dataType>ui4</dataType>
+           <defaultValue>60</defaultValue>
+       </stateVariable>
+   	   <stateVariable>
+           <name>ConstT</name>
+           <dataType>ui4</dataType>
+           <defaultValue>1</defaultValue>
+       </stateVariable>
+   	   <stateVariable>
+           <name>heatTimeleft</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+	   <stateVariable>
+           <name>calTimeleft</name>
+           <dataType>string</dataType>
+           <defaultValue/>
+       </stateVariable>
+       <stateVariable>
+           <Optional/>
+           <name>Forced Mode Duration</name>
+           <dataType>ui4</dataType>
+            <defaultValue>1200</defaultValue>
+       </stateVariable>
+       <stateVariable>
+           <Optional/>
+           <name>Calculation period</name>
+           <dataType>ui4</dataType>
+           <defaultValue>3600</defaultValue>
+       </stateVariable>
+       <stateVariable>
+           <Optional/>
+           <name>Waiting Time Open</name>
+           <dataType>ui4</dataType>
+           <defaultValue>0</defaultValue>
+       </stateVariable>
+       <stateVariable>
+           <Optional/>
+           <name>Waiting Time Close</name>
+           <dataType>ui4</dataType>
+           <defaultValue>0</defaultValue>
+       </stateVariable>
+       <stateVariable>
+           <name>Inhibited</name>
+           <dataType>boolean</dataType>
+           <defaultValue>0</defaultValue>
+       </stateVariable>
+      <stateVariable>
+          <name>Forced Mode</name>
+          <dataType>string</dataType>
+          <defaultValue/>
+      </stateVariable>
+       <stateVariable>
+           <name>EndHeatTimesStamp</name>
+           <dataType>ui4</dataType>
+       </stateVariable>
+       <stateVariable>
+           <name>TimesStamp</name>
+           <dataType>ui4</dataType>
+       </stateVariable>
+   </serviceStateTable>
+   <actionList>
+   	<action>
+      <name>SetForcedMode</name>
+    </action>
+    <action>
+      <name>GraphIt</name>
+    </action>
+    <action>
+      <name>UpdateStatus</name>
+    </action>
+   </actionList>
+</scpd>

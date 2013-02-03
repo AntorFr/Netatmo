@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<implementation>
+	<functions>
+		-- Netatmo v0.1
+        
+        -- ServiceID
+        local NAM_SID =     "urn:antor-fr:serviceId:Netatmo1"
+        
+        -- DeviceID
+
+
+        
+
+		function Netatmo_startup (lul_device)
+            debuglog("Netatmo running...")
+			local data = readSettings(lul_device)
+
+            -- check data before process
+            if (data.InSensors == nil or #data.InSensors &lt; 1 or data.heaters == nil or #data.heaters &lt; 1) then
+                debuglog("Configuration erronee")
+                luup.task('Configuration erronée',2,'Netatmo', -1)
+                return false
+            end
+        
+            return true,"ok","Netatmo"
+		end
+        
+		function readSettings(lul_device)
+            local data = {}
+        
+            -- Config ID
+            data.client_id = readVariableOrInit(lul_device,NAM_SID, "Client Id", "" )
+            data.client_secret = readVariableOrInit(lul_device,NAM_SID, "Client Secret", "" )
+            data.username = readVariableOrInit(lul_device,NAM_SID, "Username", "" )
+            data.password = readVariableOrInit(lul_device,NAM_SID, "Password", "" )
+			
+            -- Config Variables
+            data.OpenTempo = tonumber(readVariableOrInit(lul_device,SVT_SID, "Waiting Time Open", "0" ))
+
+            -- internal Variables
+            data.ForcedModeState = readVariableOrInit(lul_device,SVT_SID, "Forced Mode", "ForcedOff" )
+
+        
+            return data
+        end
+        
+
+        
+				
+
+		
+
+	</functions>
+	<startup>virtual_thermostat_startup</startup>
+    <files>L_SmartVT1.lua</files>
+	<actionList>
+		<action>
+			<serviceId>urn:antor-fr:serviceId:Netatmo1</serviceId>
+			<name>ReadNetatmoAPI</name>
+			<job>
+                ReadNetatmoAPI(lul_device)
+				return 4, 5
+			</job>
+		</action>
+	</actionList>
+</implementation>
