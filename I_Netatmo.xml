@@ -51,8 +51,8 @@
 		
 
 	</functions>
-	<startup>virtual_thermostat_startup</startup>
-    <files>L_SmartVT1.lua</files>
+	<startup>netatmo_startup</startup>
+    <files>L_Netatmo.lua</files>
 	<actionList>
 		<action>
 			<serviceId>urn:antor-fr:serviceId:Netatmo1</serviceId>
